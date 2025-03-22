@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+#card-items {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
 @layer components {
   .align-element {
     @apply mx-auto max-w-6xl px-8;

@@ -20,7 +20,7 @@ const Alert = () => {
   const alertData = realAlert || dummyAlert;
 
   return (
-    <div className="bg-red-500 text-white p-4  shadow-md">
+    <div className="bg-red-500 text-white p-4 rounded-2xl shadow-md mt-12">
       <h2 className="text-xl font-bold">⚠️ Weather Alert!</h2>
       <p className="font-semibold">{alertData.event}</p>
       <p>{alertData.description}</p>

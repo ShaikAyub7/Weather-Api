@@ -5,7 +5,6 @@ import { toast, ToastContainer } from "react-toastify";
 import { Graph } from "./components/Graph";
 import Alert from "./components/Alert";
 import Footer from "./components/Footer";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 function App() {
   return (
@@ -13,11 +12,10 @@ function App() {
       <ContextProvider>
         <ToastContainer position="top-center" />
         <Navbar />
-        {/* <Alert /> */}
         <Home />
         <Graph />
       </ContextProvider>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
