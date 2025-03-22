@@ -18,7 +18,7 @@ const FetchData = () => {
       <div
         className={`  grid lg:grid-cols-2 place-items-center sm:grid-cols-1 md:grid-cols-2 `}
       >
-        <div className={""}>
+        <div className={"hidden md:block"}>
           <img src="./header2.svg" alt="" className="lg:w-96 sm:66" />
         </div>
         <div>

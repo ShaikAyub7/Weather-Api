@@ -4,8 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import WeatherChart from "./Chart";
 
-const APIkey = "f14d315c95e7e6197762baed87c3a09d";
-const secondKey = "XHGNV7DPNKSCMJ7ENSHHCYXTW";
+const APIkey = import.meta.env.VITE_API_FIRST_KEY;
+const secondKey = import.meta.env.VITE_API_SECOND_KEY;
 const ApiContext = createContext();
 
 const Context = ({ children }) => {
@@ -35,9 +35,8 @@ const Context = ({ children }) => {
         const response1 = await axios.get(locationApi);
         const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${response1.data.name}?key=${secondKey}&unitGroup=metric`;
         const response = await axios.get(url);
+        response.data.alert = "warning";
         setCurrentLocationData(response.data);
-        response.data.alert = "full raining";
-        toast.error(response.data.alert);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching weather data:", error);

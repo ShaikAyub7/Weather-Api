@@ -5,14 +5,15 @@ import Chart from "./components/Chart";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import { Graph } from "./components/Graph";
+import Alert from "./components/Alert";
 
 function App() {
-  toast.success("Welcome to cloudlink");
   return (
     <>
       <ContextProvider>
         <ToastContainer position="top-center" />
         <Navbar />
+        <Alert />
         <Home />
         <Graph />
         {/* <Chart forecastData={currentLocationData} /> */}
