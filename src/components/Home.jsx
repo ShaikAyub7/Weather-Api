@@ -27,8 +27,8 @@ const FetchData = () => {
               <span className="loading loading-ring loading-lg"></span>
             </>
           ) : (
-            <div className="p-2 md:p-6 mt-12">
-              <h2 className="font-bold text-xl mb-4 flex items-center gap-2 md:text-4xl ">
+            <div className="p-2 md:p-6  md:mt:8 w-full ">
+              <h2 className="font-medium text-4xl mb-4 flex items-center gap-2 md:text-4xl  ">
                 <FaCloudSun />
                 Weather in {searchData?.name || currentLocationData?.address}
               </h2>
