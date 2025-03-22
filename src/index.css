@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-6xl px-8;
+  }
+}
+.default-bg {
+  background: url("./bg.gif") no-repeat center center/cover;
+}
+.rainy-bg {
+  background: url("./rain.gif") no-repeat center center/cover;
+}
+.haze-bg {
+  background: url("./haze.gif") no-repeat center center/cover;
+}
+@plugin "daisyui" {
+  themes: all;
+}
