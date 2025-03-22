@@ -2,6 +2,7 @@ import { FaCloudSun, FaTemperatureLow } from "react-icons/fa";
 import { useGlobalContext } from "./Context";
 import { WiDayShowers, WiHumidity, WiWindBeaufort0 } from "react-icons/wi";
 import SingleDayData from "./SingleDayData";
+import { WeatherIcon } from "./Icons";
 
 const FetchData = () => {
   const {
@@ -12,14 +13,21 @@ const FetchData = () => {
     setBgClass,
     bgClass,
   } = useGlobalContext();
-
   return (
     <section className="align-element p-12 py-18">
       <div
         className={`  grid lg:grid-cols-2 place-items-center sm:grid-cols-1 md:grid-cols-2 `}
       >
-        <div className={"hidden md:block"}>
-          <img src="./header2.svg" alt="" className="lg:w-96 sm:66" />
+        <div className={" md:block"}>
+          {/* <img src="./header2.svg" alt="" " />
+           */}
+          <WeatherIcon
+            icon={
+              searchData?.days?.[0]?.icon ||
+              currentLocationData?.days?.[0]?.icon
+            }
+            className="lg:w-96 sm:66 absolute"
+          />
         </div>
         <div>
           {loading ? (
@@ -27,35 +35,35 @@ const FetchData = () => {
               <span className="loading loading-ring loading-lg"></span>
             </>
           ) : (
-            <div className="p-2 md:p-6  md:mt:8 w-full ">
+            <div className="p-2 md:p-6  md:mt:8 w-full relative">
               <h2 className="font-medium text-4xl mb-4 flex items-center gap-2 md:text-4xl flex-wrap  ">
                 <FaCloudSun />
-                Weather in {searchData?.name || currentLocationData?.address}
+                Weather in {searchData?.address || currentLocationData?.address}
               </h2>
 
               <p className="font-medium text-2xl flex gap-x-2.5 items-center ">
                 Temperature: <FaTemperatureLow />
-                {searchData?.main?.temp ||
+                {searchData?.currentConditions?.temp ||
                   currentLocationData?.currentConditions?.temp}
                 °C
               </p>
               <p className="font-medium text-2xl flex gap-x-2.5 items-center">
                 Weather:
                 <WiDayShowers />
-                {searchData?.weather?.[0]?.description ||
+                {searchData?.currentConditions?.conditions ||
                   currentLocationData?.currentConditions.conditions}
               </p>
               <p className="font-medium text-2xl flex gap-x-2.5 items-center">
                 Humidity : <WiHumidity />
-                {searchData?.main?.humidity ||
+                {searchData?.currentConditions?.humidity ||
                   currentLocationData?.currentConditions?.humidity}
                 %
               </p>
               <p className="font-medium text-2xl flex gap-x-2.5 items-center">
                 Windspeed : <WiWindBeaufort0 />
-                {searchData?.main?.windspeed ||
+                {searchData?.currentConditions?.windspeed ||
                   currentLocationData?.currentConditions?.windspeed}
-                %
+                km/hr
               </p>
             </div>
           )}

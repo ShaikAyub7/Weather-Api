@@ -12,7 +12,8 @@ const SingleDayData = () => {
           <Card data={currentLocationData} />
         </>
       ) : (
-        <div className="loading loading-ring loading-xl  flex items-center justify-center place-items-center "></div>
+        <></>
+        // <div className="loading loading-ring loading-xl  flex items-center justify-center place-items-center "></div>
       )}
     </div>
   );

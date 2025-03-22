@@ -59,9 +59,10 @@ const Context = ({ children }) => {
     }
     setLoading(true);
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
+      const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${secondKey}&unitGroup=metric`;
       const response = await axios.get(url);
       setData(response.data);
+      console.log(response.data);
       setLoading(false);
     } catch (error) {
       console.log(error);

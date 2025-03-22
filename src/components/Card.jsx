@@ -15,7 +15,7 @@ const Card = ({ data }) => {
                 <figure className="h-18 w-full flex justify-center items-center">
                   <WeatherIcon icon={day.icon} />
                 </figure>
-                <div className="card-body p-2 ">
+                <div className="card-body p-2 z-10">
                   <h2 className="">Date: {day.datetime}</h2>
                   <p>Temp : {day.temp}</p>
                   <p>Condition : {day.conditions}</p>
