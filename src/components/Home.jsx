@@ -1,6 +1,6 @@
 import { FaCloudSun, FaTemperatureLow } from "react-icons/fa";
 import { useGlobalContext } from "./Context";
-import { WiDayShowers, WiHumidity } from "react-icons/wi";
+import { WiDayShowers, WiHumidity, WiWindBeaufort0 } from "react-icons/wi";
 import SingleDayData from "./SingleDayData";
 
 const FetchData = () => {
@@ -49,6 +49,12 @@ const FetchData = () => {
                 Humidity : <WiHumidity />
                 {searchData?.main?.humidity ||
                   currentLocationData?.currentConditions?.humidity}
+                %
+              </p>
+              <p className="font-medium text-2xl flex gap-x-2.5 items-center">
+                Windspeed : <WiWindBeaufort0 />
+                {searchData?.main?.windspeed ||
+                  currentLocationData?.currentConditions?.windspeed}
                 %
               </p>
             </div>

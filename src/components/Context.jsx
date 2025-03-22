@@ -39,6 +39,7 @@ const Context = ({ children }) => {
         const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${response1.data.name}?key=${secondKey}&unitGroup=metric`;
         const response = await axios.get(url);
         setCurrentLocationData(response.data);
+        console.log(response.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching weather data:", error);
