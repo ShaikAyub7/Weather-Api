@@ -28,6 +28,9 @@ const Context = ({ children }) => {
   };
 
   const fetchData = () => {
+    if (!navigator.geolocation) {
+      return toast.error("Please Turn on Location");
+    }
     navigator.geolocation.getCurrentPosition(async (position) => {
       try {
         const { latitude, longitude } = position.coords;
@@ -35,7 +38,6 @@ const Context = ({ children }) => {
         const response1 = await axios.get(locationApi);
         const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${response1.data.name}?key=${secondKey}&unitGroup=metric`;
         const response = await axios.get(url);
-        response.data.alert = "warning";
         setCurrentLocationData(response.data);
         setLoading(false);
       } catch (error) {

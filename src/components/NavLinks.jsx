@@ -4,8 +4,8 @@ const NavLinks = () => {
   const localTheme = () => localStorage.getItem("dark-theme");
   const [theme, setTheme] = useState(localTheme());
   const themes = {
-    winter: "nord",
-    dracula: "night",
+    winter: "pastel",
+    dracula: "black",
   };
   const handleTheme = () => {
     const { winter, dracula } = themes;
