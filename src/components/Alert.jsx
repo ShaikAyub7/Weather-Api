@@ -3,7 +3,7 @@ import { useGlobalContext } from "./Context";
 const Alert = () => {
   const { currentLocationData, loading } = useGlobalContext();
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
 
   const realAlert =
     currentLocationData?.alerts?.[0] || currentLocationData?.events?.[0];

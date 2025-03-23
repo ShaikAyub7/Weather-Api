@@ -1,5 +1,6 @@
 import React from "react";
 import { WeatherIcon } from "./Icons";
+import { formatTime12Hour } from "../data";
 
 const Card = ({ data }) => {
   return (
@@ -20,8 +21,12 @@ const Card = ({ data }) => {
                   <h2 className="">Date: {day.datetime}</h2>
                   <p>Temp : {day.temp}</p>
                   <p>Condition : {day.conditions}</p>
-                  <p className="line-clamp-1">Sunrise : {day.sunrise}</p>
-                  <p className="line-clamp-1">Sunset : {day.sunset}</p>
+                  <p className="line-clamp-1">
+                    Sunrise : {formatTime12Hour(day.sunrise)}
+                  </p>
+                  <p className="line-clamp-1">
+                    Sunset : {formatTime12Hour(day.sunset)}
+                  </p>
                 </div>
               </div>
             ))}

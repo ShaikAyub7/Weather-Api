@@ -28,15 +28,16 @@ const FetchData = () => {
               <span className="loading loading-ring loading-lg"></span>
             </>
           ) : (
-            <div className="p-2 md:p-6  md:mt:8 w-full relative">
+            <div className="p-2 md:p-6  md:mt:8 w-full relative leading-2.5">
               <h2 className="font-medium text-4xl mb-4 flex items-center gap-2 md:text-4xl flex-wrap  ">
                 Weather in {searchData?.address || currentLocationData?.address}
                 <FaCloudSun />
               </h2>
               {data.map((d, i) => (
-                <div key={i}>
-                  <p className="font-medium text-2xl flex gap-x-2.5 items-center ">
-                    {d.name}
+                <div key={i} className="leading-56">
+                  <p className="font-semibold text-2xl  gap-x-2.5 items-center flex justify-baseline ">
+                    <span className="font-medium">{d.name}</span>
+
                     {d.icon}
                     {d.temp}
                     {d.symbol}
