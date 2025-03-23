@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import ContextProvider, { useGlobalContext } from "./components/Context";
 import { toast, ToastContainer } from "react-toastify";
 import { Graph } from "./components/Graph";
-import Alert from "./components/Alert";
 import Footer from "./components/Footer";
 
 function App() {

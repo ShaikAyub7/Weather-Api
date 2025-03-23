@@ -30,10 +30,8 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-46 h-96"
             >
-              <div className=" items-center justify-center hidden lg:flex">
-                <div className="block">
-                  Theme : <NavLinks />
-                </div>
+              <div className=" items-center justify-center hidden md:flex lg:flex">
+                Theme : <NavLinks />
               </div>
             </ul>
           </div>

@@ -1,0 +1,11 @@
+{
+  "weather": {
+    "title": "Clima en",
+    "temperature": "Temperatura",
+    "humidity": "Humedad",
+    "wind": "Velocidad del viento",
+    "speak": "Leer el clima en voz alta",
+    "search": "Ingrese el nombre de la ciudad...",
+    "speakNow": "🎙 Di el nombre de la ciudad"
+  }
+}

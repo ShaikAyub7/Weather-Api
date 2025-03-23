@@ -1,0 +1,11 @@
+{
+  "weather": {
+    "title": "Weather in",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "wind": "Wind Speed",
+    "speak": "Read Weather Aloud",
+    "search": "Enter city name...",
+    "speakNow": "🎙 Speak City Name"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "weather": {
+    "title": "Météo à",
+    "temperature": "Température",
+    "humidity": "Humidité",
+    "wind": "Vitesse du vent",
+    "speak": "Lire la météo à haute voix",
+    "search": "Entrez le nom de la ville...",
+    "speakNow": "🎙 Dites le nom de la ville"
+  }
+}
