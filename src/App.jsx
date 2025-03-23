@@ -15,7 +15,7 @@ function App() {
         <Home />
         <Graph />
       </ContextProvider>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
