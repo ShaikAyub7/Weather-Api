@@ -18,14 +18,6 @@ const dataFn = () => {
   const { data: searchData, currentLocationData } = useGlobalContext();
   return [
     {
-      name: "Time : ",
-      temp:
-        formatTime12Hour(searchData?.currentConditions?.datetime) ||
-        formatTime12Hour(currentLocationData?.currentConditions?.datetime),
-      symbol: "",
-      icon: <CiClock1 />,
-    },
-    {
       name: "Temperature : ",
 
       temp:

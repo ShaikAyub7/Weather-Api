@@ -4,6 +4,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router";
 
 import NavLinks from "./NavLinks";
+import Location from "./Location";
 
 const Navbar = () => {
   const {
@@ -30,8 +31,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-46 h-96"
             >
-              <div className=" items-center justify-center hidden md:flex lg:flex">
-                Theme : <NavLinks />
+              <div className=" flex flex-col items-center justify-center place-content-center  md:block lg:hidden">
+                <div className="flex items-center border-b-1 py-2.5">
+                  Theme : <NavLinks />
+                </div>
+                <div className="flex items-center justify-baseline mt-2.5 border-b-1 py-2.5">
+                  <Location />
+                </div>
               </div>
             </ul>
           </div>
@@ -42,14 +48,9 @@ const Navbar = () => {
               <span className="loading loading-ring loading-sm"></span>
             </>
           ) : (
-            <>
-              <div className=" hidden  lg:flex w-52">
-                <p className="flex items-center gap-2 justify-center">
-                  <FaLocationArrow />
-                  Location : {currentLocationData?.address}
-                </p>
-              </div>
-            </>
+            <div className="hidden lg:flex">
+              <Location />
+            </div>
           )}
         </div>
         <div className="flex gap-2">
