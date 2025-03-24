@@ -41,8 +41,8 @@ const Card = ({ data }) => {
           )}
         </>
       ) : (
-        <div className="p-25 flex flex-col justify-center items-center gap-y-5 m-auto">
-          <h1 className="font-bold">
+        <div className="p-25 flex flex-col justify-center items-center gap-y-5 m-auto  ">
+          <h1 className="md:font-bold font-light w-full">
             Please Login For future weather details...
           </h1>
           <button className="btn btn-primary ">Login</button>
