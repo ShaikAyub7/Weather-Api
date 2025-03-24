@@ -2,9 +2,14 @@ import { useGlobalContext } from "./Context";
 import { FaLocationArrow } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router";
-
 import NavLinks from "./NavLinks";
 import Location from "./Location";
+import { formatTime12Hour } from "../data";
+
+let date = new Date();
+const hour = date.getHours();
+const minute = date.getMinutes();
+const seconds = date.getSeconds();
 
 const Navbar = () => {
   const {
@@ -29,14 +34,17 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-46 h-96"
+              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-46 h-96 relative"
             >
-              <div className=" flex flex-col items-center justify-center place-content-center  md:block lg:hidden">
+              <div className=" flex flex-col items-center justify-center place-content-center  lg:hidden ">
                 <div className="flex items-center border-b-1 py-2.5">
                   Theme : <NavLinks />
                 </div>
                 <div className="flex items-center justify-baseline mt-2.5 border-b-1 py-2.5">
                   <Location />
+                </div>
+                <div className="flex items-center justify-baseline mt-2.5 border-b-1 py-2.5 absolute bottom-1">
+                  Time : {`${hour}: ${minute} : ${seconds}`}
                 </div>
               </div>
             </ul>
@@ -62,12 +70,12 @@ const Navbar = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
           <button
-            className="btn btn-accent mr-8"
+            className="btn btn-primary mr-8"
             onClick={() => fetchWeatherByCity(search)}
           >
             Search
           </button>
-          <div className=" hidden lg:flex md:flex">
+          <div className=" hidden lg:flex md:hidden">
             <NavLinks />
           </div>
         </div>
