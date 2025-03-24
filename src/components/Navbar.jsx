@@ -5,6 +5,7 @@ import { NavLink } from "react-router";
 import NavLinks from "./NavLinks";
 import Location from "./Location";
 import { formatTime12Hour } from "../data";
+import Header from "./Header";
 
 let date = new Date();
 const hour = date.getHours();

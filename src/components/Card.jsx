@@ -4,7 +4,7 @@ import { formatTime12Hour } from "../data";
 import { useState } from "react";
 
 const Card = ({ data }) => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   return (
     <div className=" carousel carousel-end rounded-box w-full  mt-6">
       {user ? (
