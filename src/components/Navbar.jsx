@@ -79,9 +79,9 @@ const Navbar = () => {
           <div className=" hidden lg:flex md:hidden">
             <NavLinks />
           </div>
-          <div>
+          {/* <div>
             <Link to={"/register"}>register</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

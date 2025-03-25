@@ -12,7 +12,7 @@ const Context = ({ children }) => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
-  const [currentLocationData, setCurrentLocationData] = useState(null);
+  const [currentLocationData, setCurrentLocationData] = useState([]);
 
   const fetchData = () => {
     if (!navigator.geolocation) {
@@ -27,7 +27,7 @@ const Context = ({ children }) => {
         const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${response1.data.name}?key=${secondKey}&unitGroup=metric`;
         const response = await axios.get(url);
         setCurrentLocationData(response.data);
-        console.log(response.data);
+
         setLoading(false);
       } catch (error) {
         toast.error(error.response.message);

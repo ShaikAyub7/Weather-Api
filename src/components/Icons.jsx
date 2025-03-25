@@ -26,18 +26,13 @@ const animationMapping = {
   rain: rain,
 };
 
-export const WeatherIcon = ({ icon }) => {
+export const WeatherIcon = ({ icon, size }) => {
   const hour = new Date().getHours();
 
   const isDay = hour >= 6 && hour < 18;
   return (
     <div className="flex flex-col items-center">
-      <Lottie
-        animationData={
-          animationMapping[icon] || (isDay ? clearNight : clearDay)
-        }
-        className="w-40 h-40"
-      />
+      <Lottie animationData={isDay ? clearDay : clearNight} className={size} />
 
       {/* <div className="text-4xl mt-2">{iconMapping[icon] || <FaCloud />}</div> */}
     </div>

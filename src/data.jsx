@@ -14,8 +14,8 @@ export const formatTime12Hour = (timeString) => {
     hour12: true,
   });
 };
-const dataFn = () => {
-  const { data: searchData, currentLocationData } = useGlobalContext();
+const searchDataFn = () => {
+  const { searchData, currentLocationData } = useGlobalContext();
   return [
     {
       name: "Temperature : ",
@@ -26,14 +26,13 @@ const dataFn = () => {
       symbol: "°C",
       icon: <FaTemperatureLow />,
     },
-    {
-      name: "Weather : ",
-
-      temp:
-        searchData?.currentConditions?.conditions ||
-        currentLocationData?.currentConditions.conditions,
-      icon: <WiDayShowers />,
-    },
+    // {
+    //   name: "Weather : ",
+    //   temp:
+    //     searchData?.currentConditions?.conditions ||
+    //     currentLocationData?.currentConditions.conditions,
+    //   icon: <WiDayShowers />,
+    // },
     {
       name: "Humidity : ",
       temp:
@@ -61,4 +60,4 @@ const dataFn = () => {
   ];
 };
 
-export default dataFn;
+export default searchDataFn;

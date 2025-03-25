@@ -6,12 +6,12 @@ import dataFn from "../data";
 import Alert from "./Alert";
 
 const FetchData = () => {
-  const { data: searchData, currentLocationData, loading } = useGlobalContext();
+  const { searchData, currentLocationData, loading } = useGlobalContext();
   const data = dataFn();
   return (
-    <section className="align-element p-12 py-18">
+    <section className="align-element p-2 py-18 ">
       <div
-        className={`grid lg:grid-cols-2 place-items-center sm:grid-cols-1 md:grid-cols-2 `}
+        className={`grid lg:grid-cols-2 place-items-center grid-cols-1 md:grid-cols-2  `}
       >
         <div className={" md:block"}>
           <WeatherIcon
@@ -19,6 +19,7 @@ const FetchData = () => {
               searchData?.days?.[0]?.icon ||
               currentLocationData?.days?.[0]?.icon
             }
+            size={" h-76 w-55 lg:w-100"}
             className="lg:w-96 sm:66 absolute"
           />
         </div>
@@ -28,22 +29,27 @@ const FetchData = () => {
               <span className="loading loading-ring loading-lg"></span>
             </>
           ) : (
-            <div className="p-2 md:p-6  md:mt:8 w-full relative leading-2.5">
-              <h2 className="md:font-medium mb-4 flex items-center gap-2 md:text-4xl flex-wrap font-light  text-2xl ">
-                Weather in {searchData?.address || currentLocationData?.address}
-                <FaCloudSun />
-              </h2>
-              {data.map((d, i) => (
-                <div key={i} className="leading-56             ">
-                  <p className="font-light text-2xl  gap-x-2.5 items-center flex justify-baseline md:font-semibold">
-                    <span className="font-medium">{d.name}</span>
-
-                    {d.icon}
-                    {d.temp}
-                    {d.symbol}
-                  </p>
-                </div>
-              ))}
+            <div className=" ">
+              <div className="p-2 w-full   text-md sm:text-sm md:text-lg lg:text-2xl leading-snug">
+                <h2 className="flex items-center lg:w-100 gap-x-1 sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 ">
+                  Weather in{" "}
+                  {searchData?.address || currentLocationData?.address}
+                  <FaCloudSun />
+                </h2>
+                {data.map((d, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-start gap-1 md:gap-2 leading-tight"
+                  >
+                    <div className="flex items-center space-x-1">
+                      <span className="font-semibold   p-2 flex ">
+                        {d.name}
+                        {d.icon} {d.temp} {d.symbol}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
