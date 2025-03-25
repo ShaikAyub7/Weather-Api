@@ -1,12 +1,14 @@
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import ContextProvider, { useGlobalContext } from "./components/Context";
+import ContextProvider from "./components/Context";
 import { toast, ToastContainer } from "react-toastify";
 import { Graph } from "./components/Graph";
 import Footer from "./components/Footer";
-import { createBrowserRouter } from "react-router";
-import { HomeLayout, Login } from "./pages";
-import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomeLayout from "./pages/HomeLayout";
+import Login from "./pages/Login";
+import Register, { action as RegisterAction } from "./pages/Register";
+import { action as LoginAction } from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -14,20 +16,25 @@ const router = createBrowserRouter([
     element: <HomeLayout />,
     children: [
       {
-        path: "login",
-        element: <Login />,
-      },
-      {
+        path: "/",
         element: <Home />,
         index: true,
-        // loader: LandingLoader,
-        // errorElement: <ErrorElement />,
       },
       {
+        path: "/graph",
         element: <Graph />,
-        index: true,
       },
     ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
+    action: RegisterAction,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+    action: LoginAction,
   },
 ]);
 

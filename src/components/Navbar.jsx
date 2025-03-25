@@ -1,7 +1,7 @@
 import { useGlobalContext } from "./Context";
 import { FaLocationArrow } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import NavLinks from "./NavLinks";
 import Location from "./Location";
 import { formatTime12Hour } from "../data";
@@ -62,7 +62,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 navbar-end">
           <input
             type="text"
             placeholder="Search city..."
@@ -78,6 +78,9 @@ const Navbar = () => {
           </button>
           <div className=" hidden lg:flex md:hidden">
             <NavLinks />
+          </div>
+          <div>
+            <Link to={"/register"}>register</Link>
           </div>
         </div>
       </div>

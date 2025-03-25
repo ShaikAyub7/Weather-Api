@@ -1,6 +1,7 @@
+import React from "react";
+import { Link, Form, redirect } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
-import { Link, Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -8,45 +9,48 @@ export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
-    const token = localStorage.getItem("token");
-
     const response = await axios.post(
-      "http://localhost:5000/api/login",
-      { headers: { Authorization: `Bearer ${token}` } },
+      "https://mini-project-server-production.up.railway.app/api/register",
       data
     );
     console.log(response);
-
-    return redirect("/");
+    if (response.data.token) {
+      localStorage.setItem("token", response.data.token);
+      toast.success("Login successful");
+    }
+    toast.success(response.data.message);
+    return redirect("/login");
   } catch (error) {
-    console.log(error);
     toast.error(error.response.data.message);
   }
 };
-
-const Login = () => {
+const Register = () => {
   return (
     <section className="grid h-screen place-items-center">
       <Form
         method="post"
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
       >
-        <h4 className="text-center text-3xl font-bold">Login</h4>
-        <FormInput type={"email"} label={"email"} name="email" />
-        <FormInput type={"password"} label={"password"} name="password" />
+        <h4 className="text-center text-3xl font-bold">Register</h4>
+        <FormInput
+          type={"text"}
+          label={"username"}
+          name={"name"}
+          defaultValue={"Azra fathima"}
+        />
+        <FormInput type={"email"} label={"email"} name={"email"} />
+        <FormInput type={"password"} label={"password"} name={"password"} />
         <div className=" mt-4">
-          <SubmitBtn text={"Login"} />
+          <SubmitBtn text={"Register"} />
         </div>
-        <button type="button" className="btn btn-secondary btn-block">
-          Guest User
-        </button>
+
         <p className="text-center">
-          Not at member ?{" "}
+          Already a member ?{" "}
           <Link
-            to={"/register"}
+            to={"/login"}
             className="ml-2 link link-hover link-primary capitalize"
           >
-            Register now
+            Login
           </Link>
         </p>
       </Form>
@@ -54,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
