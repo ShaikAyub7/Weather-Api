@@ -15,6 +15,7 @@
     "axios": "^1.8.4",
     "chart.js": "^4.4.8",
     "dotenv": "^16.4.7",
+    "globe.gl": "^2.41.3",
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
     "i18next-http-backend": "^3.0.2",

@@ -21,7 +21,9 @@ const Alert = () => {
   const bgColor = dummyAlert ? "bg-blue-500" : "bg-red-500";
 
   return (
-    <div className={`${bgColor} text-white p-4 rounded-2xl shadow-md mt-12 `}>
+    <div
+      className={`${bgColor} text-white p-4 rounded-2xl shadow-md mt-12 max-w-5xl m-auto `}
+    >
       <h2 className="text-xl font-bold">⚠️ Weather Alert!</h2>
       <p className="font-semibold">{alertData.event}</p>
       <p>{alertData.description}</p>

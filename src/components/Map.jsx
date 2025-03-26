@@ -36,7 +36,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-24 mb-6 px-2">
+    <div className="w-full max-w-4xl mx-auto mt-2 mb-6 px-2">
       <h3 className="text-lg sm:text-xl font-semibold  text-center lg:text-3xl py-4 underline mb-12">
         Weather Map
       </h3>

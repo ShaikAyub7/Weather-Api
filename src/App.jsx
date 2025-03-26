@@ -1,7 +1,6 @@
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
 import ContextProvider from "./components/Context";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Graph } from "./components/Graph";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -9,6 +8,8 @@ import HomeLayout from "./pages/HomeLayout";
 import Login from "./pages/Login";
 import Register, { action as RegisterAction } from "./pages/Register";
 import { action as LoginAction } from "./pages/Login";
+import Help from "./pages/Help";
+import Map from "./components/Map";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/graph",
         element: <Graph />,
+      },
+      {
+        path: "help",
+        element: <Help />,
+      },
+      {
+        path: "map",
+        element: <Map />,
       },
     ],
   },
@@ -45,6 +54,7 @@ function App() {
         <RouterProvider router={router} />
         <ToastContainer position="top-center" />
       </ContextProvider>
+
       <Footer />
     </>
   );

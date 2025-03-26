@@ -3,6 +3,7 @@ import { useGlobalContext } from "./components/Context";
 import { WiDayShowers, WiHumidity, WiWindBeaufort0 } from "react-icons/wi";
 import { TbUvIndex } from "react-icons/tb";
 import { CiClock1 } from "react-icons/ci";
+import { Path } from "leaflet";
 
 export const formatTime12Hour = (timeString) => {
   if (!timeString) return "";
@@ -60,4 +61,22 @@ const searchDataFn = () => {
   ];
 };
 
+export const navlinks = [
+  {
+    name: "Home",
+    Path: "/",
+  },
+  {
+    name: "Graph",
+    Path: "graph",
+  },
+  {
+    name: "Map",
+    Path: "map",
+  },
+  {
+    name: "Help",
+    Path: "help",
+  },
+];
 export default searchDataFn;

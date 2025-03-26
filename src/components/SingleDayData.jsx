@@ -6,7 +6,7 @@ const SingleDayData = () => {
   const { currentLocationData, loading } = useGlobalContext();
 
   return (
-    <div className="mt-12 ">
+    <div className="mt-12  max-w-5xl m-auto">
       {!loading ? (
         <>
           <Card data={currentLocationData} />

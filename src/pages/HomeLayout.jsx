@@ -14,8 +14,8 @@ const home = () => {
       {/* <Header /> */}
       <Navbar />
       {isPageLoading ? <Loading /> : <Outlet />}
-      <Graph />
-      <Map />
+      {/* <Graph />
+      <Map /> */}
     </div>
   );
 };
