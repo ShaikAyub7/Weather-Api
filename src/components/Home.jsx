@@ -42,7 +42,7 @@ const FetchData = () => {
                     className="flex flex-col items-start gap-1 md:gap-2 leading-tight"
                   >
                     <div className="flex items-center space-x-1">
-                      <span className="font-semibold   p-2 flex ">
+                      <span className="font-semibold items-center justify-between gap-1  p-2 flex ">
                         {d.name}
                         {d.icon} {d.temp} {d.symbol}
                       </span>

@@ -1,8 +1,9 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineElement,
+  BarElement,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -12,11 +13,11 @@ import {
 
 ChartJS.register(
   LineElement,
+  BarElement,
   CategoryScale,
   LinearScale,
   PointElement,
-  Tooltip,
-  Legend
+  Tooltip
 );
 
 const WeatherChart = ({ forecastData }) => {
@@ -41,11 +42,11 @@ const WeatherChart = ({ forecastData }) => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4">
+    <div className="w-full max-w-5xl mx-auto p-4">
       <h2 className="text-center text-xl font-bold mb-4">
         7-Day Temperature Trend
       </h2>
-      <Line data={data} />
+      <Bar data={data} />
     </div>
   );
 };

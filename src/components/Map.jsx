@@ -6,8 +6,7 @@ import "leaflet/dist/leaflet.css";
 const API_KEY = import.meta.env.VITE_API_FIRST_KEY;
 
 const Map = () => {
-  const { searchData, currentLocationData, loading } = useGlobalContext();
-  const [location, setLocation] = useState({ lat: 17.385, lng: 78.486 }); // Default: Hyderabad
+  const [location, setLocation] = useState({ lat: 17.385, lng: 78.486 });
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const Map = () => {
 
           <Marker position={[location.lat, location.lng]}>
             <Popup>
-              <strong>Current Location Weather:</strong>{" "}
+              <strong>Current Location Weather:</strong>
               {data.find((d) => d.name === "Temperature")?.temp || "Loading..."}
               °C
             </Popup>
