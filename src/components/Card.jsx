@@ -19,7 +19,11 @@ const Card = ({ data }) => {
                     className="gap-x-12  bg-gray-50  shadow-4xl  mr-6 rounded-2xl flex flex-col items-center justify-center text-black p-4 max-w-xl"
                   >
                     <figure className="h-12 w-full flex justify-center items-center mt-8">
-                      <WeatherIcon icon={day.icon} size={` h-55 w-48`} />
+                      <WeatherIcon
+                        icon={day.icon}
+                        weather={day.conditions}
+                        size={` h-45 w-45`}
+                      />
                     </figure>
                     <div className="card-body p-2 z-10">
                       <h2 className="">Date: {day.datetime}</h2>

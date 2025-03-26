@@ -19,6 +19,12 @@ const FetchData = () => {
               searchData?.days?.[0]?.icon ||
               currentLocationData?.days?.[0]?.icon
             }
+            color={"text-amber-500"}
+            weather={
+              searchData?.currentConditions?.conditions ??
+              currentLocationData?.currentConditions?.conditions ??
+              "Unknown"
+            }
             size={" h-76 w-55 lg:w-100"}
             className="lg:w-96 sm:66 absolute"
           />
