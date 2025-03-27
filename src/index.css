@@ -22,3 +22,11 @@
 @plugin "daisyui" {
   themes: all;
 }
+.active {
+  background-color: #202a43;
+  color: #fff;
+  border-radius: 10px;
+}
+#cloudlink .active {
+  background-color: none;
+}

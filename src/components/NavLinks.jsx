@@ -3,19 +3,16 @@ import { NavLink } from "react-router";
 import { navlinks } from "../data";
 const NavLinks = () => {
   return (
-    <div>
-      {" "}
-      <div className="flex flex-col md:flex-row lg:flex-row">
-        <ul className="flex flex-col md:flex-row lg:flex-row gap-1 ">
-          {navlinks.map((link, i) => {
-            return (
-              <li className="border-b-1 lg:border-none p-3" key={i}>
-                <NavLink to={link.Path}>{link.name}</NavLink>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+    <div className="w-full ">
+      <ul className="w-full flex lg:flex-row gap-4 text-center">
+        {navlinks.map((link, i) => (
+          <li key={i} className="w-full py-3 transition-all lg:border-none">
+            <NavLink to={link.Path} className="w-full block p-1">
+              {link.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

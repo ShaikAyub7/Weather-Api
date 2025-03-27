@@ -21,45 +21,46 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 shadow-sm p-4">
         <div className="navbar-start">
-          <NavLink
+          <div
             to={"/"}
-            className="hidden lg:flex btn  text-3xl items-center"
+            className="hidden lg:flex btn  text-3xl items-center bg-none"
+            id="cloudlink"
           >
             CloudLink
-          </NavLink>
-          <div className="navbar-center items-center justify-center px-8 hidden lg:flex ml-12 font-extralight">
+          </div>
+          <div className="navbar-center items-center justify-center px-8 hidden md:flex lg:flex ml-12 font-extralight">
             <NavLinks />
           </div>
           <div className="dropdown">
-            <label htmlFor="" tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label htmlFor="" tabIndex={0} className="btn btn-ghost  lg:hidden">
               <FaBarsStaggered className="h-6 w-6" />
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-56 h-150 relative"
+              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-56 h-150 relative "
             >
-              <div className=" flex flex-col items-center justify-center place-content-center  lg:hidden p-6 ">
-                <div className="border-b-1 p-6 text-3xl">
-                  <NavLinks />
+              <div className="w-full h-screen bg-gray-900 text-white  items-center py-6 relative">
+                <div className="mt-6 flex  justify-center items-center w-full mb-5">
+                  <p className="text-sm font-light">Theme:</p>
+                  <div className="mt-1 ml-2 cursor-pointer p-1 rounded-full bg-gray-800 hover:bg-gray-700 transition-all">
+                    <ThemeIcon />
+                  </div>
                 </div>
-                <div className="flex items-center border-b-1 py-2.5">
-                  Theme : <ThemeIcon />
-                </div>
-                <div className="flex items-center justify-baseline mt-2.5 border-b-1 py-2.5">
+
+                <div className="mt-4 flex items-center w-full justify-center">
                   <Location />
                 </div>
-                <div className="flex items-center justify-baseline mt-2.5 border-b-1 py-2.5 absolute bottom-1">
-                  Time : {`${hour}: ${minute} : ${seconds}`}
+                <hr className="w-1/2 my-1 border-gray-700" />
+                <div className="absolute bottom-4 text-sm text-gray-400">
+                  🕒 Time: {`${hour} : ${minute} : ${seconds}`}
                 </div>
               </div>
             </ul>
           </div>
         </div>
-        {/* <div className="navbar-center items-center justify-center px-8 hidden lg:flex">
-          <NavLinks />
-        </div> */}
+
         <div className="flex gap-2 navbar-end">
           <div className="text-center  items-center justify-center px-8">
             {loading ? (
