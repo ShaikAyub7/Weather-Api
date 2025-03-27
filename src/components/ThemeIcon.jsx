@@ -5,7 +5,7 @@ const NavLinks = () => {
   const [theme, setTheme] = useState(localTheme());
   const themes = {
     winter: "pastel",
-    dracula: "night",
+    dracula: "forest",
   };
   const handleTheme = () => {
     const { winter, dracula } = themes;

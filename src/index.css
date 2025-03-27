@@ -23,9 +23,8 @@
   themes: all;
 }
 .active {
-  background-color: #202a43;
-  color: #fff;
-  border-radius: 10px;
+  border-bottom: 2px solid rgb(101, 101, 101);
+  /* border-radius: 10px; */
 }
 #cloudlink .active {
   background-color: none;

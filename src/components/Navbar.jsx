@@ -85,22 +85,28 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center justify-center mr-2">
-          {user ? (
-            <>
-              <div className="avatar avatar-placeholder">
-                <div className="bg-neutral text-neutral-content w-8 rounded-full">
-                  <span className="text-xs">
-                    {user?.name?.charAt(0).toUpperCase()}
-                  </span>
-                </div>
-              </div>
-            </>
+          {loading ? (
+            <>loading</>
           ) : (
-            <div className="flex items-center justify-center">
-              <Link to={"/register"} className="btn btn-accent rounded-lg">
-                login
-              </Link>
-            </div>
+            <>
+              {user ? (
+                <>
+                  <div className="avatar avatar-placeholder">
+                    <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                      <span className="text-xs">
+                        {user?.name?.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="flex items-center justify-center">
+                  <Link to={"/login"} className="btn btn-accent rounded-lg">
+                    login
+                  </Link>
+                </div>
+              )}{" "}
+            </>
           )}
         </div>
       </div>

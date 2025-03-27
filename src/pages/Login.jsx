@@ -4,6 +4,7 @@ import { Link, Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useGlobalContext } from "../components/Context";
+import { useEffect } from "react";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -31,6 +32,14 @@ export const action = async ({ request }) => {
 };
 
 const Login = () => {
+  const { setUser } = useGlobalContext();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
   return (
     <section className="grid h-screen place-items-center">
       <Form
