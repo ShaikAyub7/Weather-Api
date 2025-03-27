@@ -10,40 +10,50 @@ import Register, { action as RegisterAction } from "./pages/Register";
 import { action as LoginAction } from "./pages/Login";
 import Help from "./pages/Help";
 import Map from "./components/Map";
+import Error from "./components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    errorElement: <Error />,
+
     children: [
       {
         path: "/",
         element: <Home />,
         index: true,
+        errorElement: <Error />,
       },
       {
         path: "/graph",
         element: <Graph />,
+        errorElement: <Error />,
       },
       {
         path: "help",
         element: <Help />,
+        errorElement: <Error />,
       },
       {
         path: "map",
         element: <Map />,
+        errorElement: <Error />,
       },
     ],
   },
   {
     path: "/register",
     element: <Register />,
+    errorElement: <Error />,
+
     action: RegisterAction,
   },
   {
     path: "/login",
     element: <Login />,
     action: LoginAction,
+    errorElement: <Error />,
   },
 ]);
 
