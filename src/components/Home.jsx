@@ -7,7 +7,13 @@ import Alert from "./Alert";
 import { Link } from "react-router";
 
 const FetchData = () => {
-  const { searchData, currentLocationData, loading, user } = useGlobalContext();
+  const {
+    search,
+    currentLocationData,
+    loading,
+    user,
+    data: searchData,
+  } = useGlobalContext();
   const data = dataFn();
   return (
     <section className="align-element p-2 py-18 ">
@@ -24,7 +30,7 @@ const FetchData = () => {
             weather={
               searchData?.currentConditions?.conditions ??
               currentLocationData?.currentConditions?.conditions ??
-              "Unknown"
+              ""
             }
             size={" h-76 w-55 lg:w-100"}
             className="lg:w-96 sm:66 absolute"
@@ -39,7 +45,7 @@ const FetchData = () => {
             <div className=" ">
               <div className="p-2 w-full   text-md sm:text-sm md:text-lg lg:text-2xl leading-snug">
                 <h2 className="flex items-center lg:w-100 gap-x-1 sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 ">
-                  Weather in{" "}
+                  Weather in {""}
                   {searchData?.address || currentLocationData?.address}
                   <FaCloudSun />
                 </h2>
