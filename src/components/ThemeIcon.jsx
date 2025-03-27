@@ -20,7 +20,7 @@ const NavLinks = () => {
   return (
     <>
       <div className=" flex ">
-        <label className="swap swap-rotate w-14  mr-5">
+        <label className="swap swap-rotate w-14  mr-1">
           <input
             type="checkbox"
             onChange={handleTheme}

@@ -7,7 +7,7 @@ const NavLinks = () => {
       <ul className="w-full flex lg:flex-row gap-4 text-center">
         {navlinks.map((link, i) => (
           <li key={i} className="w-full py-3 transition-all lg:border-none">
-            <NavLink to={link.Path} className="w-full block p-1">
+            <NavLink to={link.Path} className="w-full block p-1 ">
               {link.name}
             </NavLink>
           </li>

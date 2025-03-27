@@ -4,9 +4,10 @@ import SingleDayData from "./SingleDayData";
 import { WeatherIcon } from "./Icons";
 import dataFn from "../data";
 import Alert from "./Alert";
+import { Link } from "react-router";
 
 const FetchData = () => {
-  const { searchData, currentLocationData, loading } = useGlobalContext();
+  const { searchData, currentLocationData, loading, user } = useGlobalContext();
   const data = dataFn();
   return (
     <section className="align-element p-2 py-18 ">
@@ -61,8 +62,16 @@ const FetchData = () => {
         </div>
       </div>
       <Alert />
-
-      <SingleDayData />
+      {user ? (
+        <SingleDayData />
+      ) : (
+        <div className="grid place-items-center mt-24 justify-center items-center">
+          <p>Please Login for future weather details</p>
+          <Link to={"/login"} className="btn btn-primary mt-2.5">
+            Login
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

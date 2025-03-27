@@ -2,26 +2,20 @@ import { useGlobalContext } from "./Context";
 import { FaBarsStaggered } from "react-icons/fa6";
 import ThemeIcon from "./ThemeIcon";
 import Location from "./Location";
+import { Link } from "react-router";
 import NavLinks from "./NavLinks";
-import { NavLink } from "react-router";
 let date = new Date();
 const hour = date.getHours();
 const minute = date.getMinutes();
 const seconds = date.getSeconds();
 
 const Navbar = () => {
-  const {
-    fetchWeatherByCity,
-    setSearch,
-    search,
-    data,
-    currentLocationData,
-    loading,
-  } = useGlobalContext();
+  const { fetchWeatherByCity, setSearch, search, user, loading } =
+    useGlobalContext();
 
   return (
     <nav>
-      <div className="navbar bg-base-100 shadow-sm p-4">
+      <div className="navbar bg-base-100 shadow-sm p-1">
         <div className="navbar-start">
           <div
             to={"/"}
@@ -30,7 +24,7 @@ const Navbar = () => {
           >
             CloudLink
           </div>
-          <div className="navbar-center items-center justify-center px-8 hidden md:flex lg:flex ml-12 font-extralight">
+          <div className="navbar-center items-center justify-center px-8 hidden md:flex lg:flex ml-12 font-normal">
             <NavLinks />
           </div>
           <div className="dropdown">
@@ -68,7 +62,7 @@ const Navbar = () => {
                 <span className="loading loading-ring loading-sm"></span>
               </>
             ) : (
-              <div className="hidden lg:flex lg:font-extralight">
+              <div className="hidden lg:flex lg:font-medium">
                 <Location />
               </div>
             )}
@@ -77,11 +71,11 @@ const Navbar = () => {
             type="text"
             placeholder="Search city..."
             value={search}
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered w-24 md:w-auto mr-1"
             onChange={(e) => setSearch(e.target.value)}
           />
           <button
-            className="btn btn-primary mr-8"
+            className="btn btn-primary mr-2"
             onClick={() => fetchWeatherByCity(search)}
           >
             Search
@@ -89,9 +83,25 @@ const Navbar = () => {
           <div className=" hidden lg:flex md:hidden">
             <ThemeIcon />
           </div>
-          {/* <div>
-            <Link to={"/register"}>register</Link>
-          </div> */}
+        </div>
+        <div className="flex items-center justify-center mr-2">
+          {user ? (
+            <>
+              <div className="avatar avatar-placeholder">
+                <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                  <span className="text-xs">
+                    {user?.name?.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="flex items-center justify-center">
+              <Link to={"/register"} className="btn btn-accent rounded-lg">
+                login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>

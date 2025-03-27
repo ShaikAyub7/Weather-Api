@@ -1,5 +1,4 @@
-import { createContext, useContext } from "react";
-import React, { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -11,29 +10,38 @@ const Context = ({ children }) => {
   const [bgClass, setBgClass] = useState("default-bg");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(true);
+  const [user, setUser] = useState(null);
+  const [data, setData] = useState(null);
   const [currentLocationData, setCurrentLocationData] = useState([]);
 
   const fetchData = () => {
     if (!navigator.geolocation) {
-      return toast.error("Please Turn on Location");
+      toast.error("Please Turn on Location");
+      return;
     }
 
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      try {
-        const { latitude, longitude } = position.coords;
-        const locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIkey}&units=metric`;
-        const response1 = await axios.get(locationApi);
-        const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${response1.data.name}?key=${secondKey}&unitGroup=metric`;
-        const response = await axios.get(url);
-        setCurrentLocationData(response.data);
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          const { latitude, longitude } = position.coords;
+          const locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIkey}&units=metric`;
+          const response1 = await axios.get(locationApi);
+          const cityName = response1.data.name;
 
-        setLoading(false);
-      } catch (error) {
-        toast.error(error.response.message);
+          const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?key=${secondKey}&unitGroup=metric`;
+          const response = await axios.get(url);
+          setCurrentLocationData(response.data);
+          setLoading(false);
+        } catch (error) {
+          toast.error(error.message || "Error fetching location data");
+          setLoading(false);
+        }
+      },
+      (error) => {
+        toast.error("Geolocation permission denied");
         setLoading(false);
       }
-    });
+    );
   };
 
   useEffect(() => {
@@ -43,7 +51,8 @@ const Context = ({ children }) => {
 
   const fetchWeatherByCity = async (city) => {
     if (!city) {
-      return toast.error("Please enter city name ");
+      toast.error("Please enter city name");
+      return;
     }
     setLoading(true);
     try {
@@ -53,13 +62,24 @@ const Context = ({ children }) => {
       console.log(response.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       toast.error("City not found");
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+      window.location.reload();
+    }
+  }, []);
+
   return (
-    <ApiContext
+    <ApiContext.Provider
       value={{
+        user,
+        setUser,
         loading,
         fetchWeatherByCity,
         data,
@@ -67,14 +87,12 @@ const Context = ({ children }) => {
         setSearch,
         setLoading,
         currentLocationData,
-        loading,
         fetchData,
         setBgClass,
-        bgClass,
       }}
     >
       {children}
-    </ApiContext>
+    </ApiContext.Provider>
   );
 };
 

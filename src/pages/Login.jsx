@@ -3,24 +3,30 @@ import SubmitBtn from "../components/SubmitBtn";
 import { Link, Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useGlobalContext } from "../components/Context";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
+
   try {
     const token = localStorage.getItem("token");
 
     const response = await axios.post(
-      "http://localhost:5000/api/login",
-      { headers: { Authorization: `Bearer ${token}` } },
-      data
+      "https://mini-project-server-production.up.railway.app/api/login",
+      data,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
     );
-    console.log(response);
+    localStorage.setItem("user", JSON.stringify(response.data.user));
 
+    toast.success(response.data.message);
+    console.log(response);
     return redirect("/");
   } catch (error) {
     console.log(error);
-    toast.error(error.response.data.message);
+    toast.error(error.response?.data?.message || "Login failed");
   }
 };
 
@@ -37,9 +43,7 @@ const Login = () => {
         <div className=" mt-4">
           <SubmitBtn text={"Login"} />
         </div>
-        <button type="button" className="btn btn-secondary btn-block">
-          Guest User
-        </button>
+
         <p className="text-center">
           Not at member ?{" "}
           <Link
