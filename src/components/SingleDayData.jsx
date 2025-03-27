@@ -3,13 +3,13 @@ import { useGlobalContext } from "./Context";
 import Card from "./Card";
 
 const SingleDayData = () => {
-  const { currentLocationData, loading } = useGlobalContext();
+  const { currentLocationData, loading, data } = useGlobalContext();
 
   return (
     <div className="mt-12  max-w-5xl m-auto">
       {!loading ? (
         <>
-          <Card data={currentLocationData} />
+          <Card data={currentLocationData} searchData={data} />
         </>
       ) : (
         <></>

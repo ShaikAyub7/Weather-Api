@@ -16,7 +16,7 @@ export const formatTime12Hour = (timeString) => {
   });
 };
 const searchDataFn = () => {
-  const { searchData, currentLocationData } = useGlobalContext();
+  const { data: searchData, currentLocationData } = useGlobalContext();
   return [
     {
       name: "Temperature : ",

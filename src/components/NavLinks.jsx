@@ -6,8 +6,8 @@ const NavLinks = () => {
     <div className="w-full ">
       <ul className="w-full flex lg:flex-row gap-4 text-center">
         {navlinks.map((link, i) => (
-          <li key={i} className="w-full py-3 transition-all lg:border-none">
-            <NavLink to={link.Path} className="w-full block p-1 ">
+          <li key={i} className="w-full py-2 transition-all lg:border-none">
+            <NavLink to={link.Path} className="w-full p-1  ">
               {link.name}
             </NavLink>
           </li>

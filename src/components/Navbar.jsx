@@ -13,6 +13,10 @@ const Navbar = () => {
   const { fetchWeatherByCity, setSearch, search, user, loading } =
     useGlobalContext();
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+  };
+
   return (
     <nav>
       <div className="navbar bg-base-100 shadow-sm p-1">
@@ -91,12 +95,30 @@ const Navbar = () => {
             <>
               {user ? (
                 <>
-                  <div className="avatar avatar-placeholder">
-                    <div className="bg-neutral text-neutral-content w-8 rounded-full">
-                      <span className="text-xs">
-                        {user?.name?.charAt(0).toUpperCase()}
-                      </span>
+                  <div className="dropdown dropdown-end">
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="btn btn-active btn-circle avatar"
+                    >
+                      <div className="avatar avatar-placeholder">
+                        <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                          <span className="text-xs">
+                            {user?.name?.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                      </div>
                     </div>
+                    <ul
+                      tabIndex={0}
+                      className="menu menu-sm dropdown-content text-amber-50 bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow-xl"
+                    >
+                      <li>
+                        <Link to={"/login"} onClick={handleLogout}>
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
                 </>
               ) : (

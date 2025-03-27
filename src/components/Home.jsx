@@ -15,6 +15,8 @@ const FetchData = () => {
     data: searchData,
   } = useGlobalContext();
   const data = dataFn();
+  console.log("current", currentLocationData);
+  console.log(searchData);
   return (
     <section className="align-element p-2 py-18 ">
       <div
