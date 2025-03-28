@@ -44,11 +44,6 @@ const Context = ({ children }) => {
     );
   };
 
-  useEffect(() => {
-    setLoading(true);
-    fetchData();
-  }, []);
-
   const fetchWeatherByCity = async (city) => {
     if (!city) {
       toast.error("Please enter city name");
@@ -68,6 +63,8 @@ const Context = ({ children }) => {
   };
 
   useEffect(() => {
+    setLoading(true);
+    fetchData();
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
