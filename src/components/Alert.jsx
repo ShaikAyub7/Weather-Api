@@ -21,17 +21,19 @@ const Alert = () => {
   const bgColor = dummyAlert ? "bg-blue-500" : "bg-red-500";
 
   return (
-    <div
-      className={`${bgColor} text-white p-4 rounded-2xl shadow-md mt-12 max-w-5xl m-auto `}
-    >
-      <h2 className="text-xl font-bold">⚠️ Weather Alert!</h2>
-      <p className="font-semibold">{alertData.event}</p>
-      <p>{alertData.description}</p>
-      <p className="text-sm">Issued by: {alertData.sender_name}</p>
-      <p className="text-xs">
-        Effective: {alertData.start} - {alertData.end}
-      </p>
-    </div>
+    <section className="   z-50">
+      <div
+        className={`${bgColor} text-white p-4 rounded-2xl shadow-md mt-12 max-w-5xl m-auto `}
+      >
+        <h2 className="text-xl font-bold">⚠️ Weather Alert!</h2>
+        <p className="font-semibold">{alertData.event}</p>
+        <p>{alertData.description}</p>
+        <p className="text-sm">Issued by: {alertData.sender_name}</p>
+        <p className="text-xs">
+          Effective: {alertData.start} - {alertData.end}
+        </p>
+      </div>
+    </section>
   );
 };
 
