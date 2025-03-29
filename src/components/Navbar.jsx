@@ -75,11 +75,11 @@ const Navbar = () => {
             type="text"
             placeholder="Search city..."
             value={search}
-            className="input input-bordered w-24 md:w-auto mr-1"
+            className="input input-bordered w-24 md:w-auto"
             onChange={(e) => setSearch(e.target.value)}
           />
           <button
-            className="btn btn-primary mr-2"
+            className="btn btn-primary mr-1"
             onClick={() => fetchWeatherByCity(search)}
           >
             Search
