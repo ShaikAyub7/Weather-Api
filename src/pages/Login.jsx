@@ -44,7 +44,7 @@ const Login = () => {
     <section className="grid h-screen place-items-center">
       <Form
         method="post"
-        className="card lg:w-96 md:w-96 p-4 bg-base-100 shadow-lg flex flex-col gap-y-4"
+        className="card lg:w-96 md:w-96 p-4 bg-base-100 shadow-lg flex m-auto flex-col gap-y-4"
       >
         <h4 className="text-center text-3xl font-bold">Login</h4>
         <FormInput type={"email"} label={"email"} name="email" />

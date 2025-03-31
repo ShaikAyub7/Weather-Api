@@ -1,8 +1,10 @@
 const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
     <div>
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend">{label}</legend>
+      <fieldset className="fieldset place-items-center">
+        <legend className="fieldset-legend text-center capitalize">
+          {label}
+        </legend>
         <input
           type={type}
           name={name}
