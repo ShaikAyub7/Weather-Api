@@ -64,7 +64,6 @@ function App() {
         <RouterProvider router={router} />
         <ToastContainer position="top-center" />
       </ContextProvider>
-
       <Footer />
     </>
   );
