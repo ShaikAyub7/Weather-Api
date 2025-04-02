@@ -37,9 +37,9 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-56 h-150 relative "
+              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-200 w-56 h-56 rounded-2xl relative "
             >
-              <div className="w-full h-screen bg-gray-900 text-white  items-center py-6 relative">
+              <div className="w-full h-screen bg-gray-900 text-white  items-center py-6 relative rounded-2xl">
                 <div className="mt-6 flex  justify-center items-center w-full mb-5">
                   <p className="text-sm font-light">Theme:</p>
                   <div className="mt-1 ml-2 cursor-pointer p-1 rounded-full bg-gray-800 hover:bg-gray-700 transition-all">
@@ -47,11 +47,11 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 flex items-center w-full justify-center">
+                <div className="mt-8 flex items-center w-full justify-center ">
                   <Location />
                 </div>
                 <hr className="w-1/2 my-1 border-gray-700" />
-                <div className="absolute bottom-4 text-sm text-gray-400">
+                <div className="absolute bottom-4 text-sm text-gray-400 m-auto left-10">
                   🕒 Time: {`${hour} : ${minute} : ${seconds}`}
                 </div>
               </div>
