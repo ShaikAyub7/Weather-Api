@@ -58,7 +58,6 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-
         <div className="flex gap-2 navbar-end">
           <div className="text-center  items-center justify-center px-8">
             {loading ? (
