@@ -4,6 +4,7 @@ import ThemeIcon from "./ThemeIcon";
 import Location from "./Location";
 import { Link } from "react-router";
 import NavLinks from "./NavLinks";
+
 let date = new Date();
 const hour = date.getHours();
 const minute = date.getMinutes();
@@ -58,6 +59,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+
         <div className="flex gap-2 navbar-end">
           <div className="text-center  items-center justify-center px-8">
             {loading ? (
@@ -134,5 +136,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
