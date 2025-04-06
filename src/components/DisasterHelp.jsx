@@ -43,7 +43,7 @@ const DisasterHelp = () => {
             <a
               href="https://www.weather.gov/"
               target="blank"
-              className="text-blue-400"
+              className="text-blue-400 cursor-pointer"
             >
               https://www.weather.gov/
             </a>
