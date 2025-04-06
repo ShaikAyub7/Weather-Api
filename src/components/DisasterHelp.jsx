@@ -6,8 +6,6 @@ const DisasterHelp = () => {
       <h1 className="text-3xl font-bold mb-4 text-red-600">
         🚨 Weather Disaster Help
       </h1>
-
-      {/* 🌪️ Storms & Hurricanes */}
       <section className="mb-6">
         <h2 className="text-xl font-semibold">🌪️ Storms & Hurricanes</h2>
         <ul className="list-disc pl-6 mt-2">
@@ -16,8 +14,7 @@ const DisasterHelp = () => {
           <li>Evacuate if instructed by local authorities.</li>
         </ul>
       </section>
-
-      {/* 🌊 Floods */}
+      \{" "}
       <section className="mb-6">
         <h2 className="text-xl font-semibold">🌊 Floods</h2>
         <ul className="list-disc pl-6 mt-2">
@@ -26,8 +23,6 @@ const DisasterHelp = () => {
           <li>Stay updated with weather alerts & evacuation notices.</li>
         </ul>
       </section>
-
-      {/* 🔥 Heatwaves */}
       <section className="mb-6">
         <h2 className="text-xl font-semibold">🔥 Heatwaves</h2>
         <ul className="list-disc pl-6 mt-2">
@@ -36,8 +31,6 @@ const DisasterHelp = () => {
           <li>Check on elderly & vulnerable people.</li>
         </ul>
       </section>
-
-      {/* 📞 Emergency Contacts */}
       <section className="mb-6">
         <h2 className="text-xl font-semibold">📞 Emergency Contacts</h2>
         <p className="mt-2">Keep these numbers saved for quick access:</p>
@@ -46,8 +39,15 @@ const DisasterHelp = () => {
           <li>🚔 **Police & Rescue:** 112</li>
           <li>🌊 **Flood Helpline:** National Disaster Helpline</li>
           <li>
-            📡 **Weather Alerts:** [NOAA](https://www.weather.gov/) / Local
-            meteorological department
+            📡 **Weather Alerts:** [NOAA](
+            <a
+              href="https://www.weather.gov/"
+              target="blank"
+              className="text-blue-400"
+            >
+              https://www.weather.gov/
+            </a>
+            ) / Local meteorological department
           </li>
         </ul>
       </section>
