@@ -13,13 +13,9 @@ export const action = async ({ request }) => {
   try {
     const token = localStorage.getItem("token");
 
-    const response = await axios.post(
-      "https://mini-project-server-production.up.railway.app/api/login",
-      data,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
+    const response = await axios.post("http://localhost:5000/api/login", data, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     localStorage.setItem("user", JSON.stringify(response.data.user));
 
     toast.success(response.data.message);

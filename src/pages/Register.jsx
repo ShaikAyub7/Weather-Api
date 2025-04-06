@@ -10,7 +10,7 @@ export const action = async ({ request }) => {
   const data = Object.fromEntries(formData);
   try {
     const response = await axios.post(
-      "https://mini-project-server-production.up.railway.app/api/register",
+      "http://localhost:5000/api/register",
       data
     );
     console.log(response);
