@@ -10,16 +10,7 @@ import MobileMenu from "../components/MobileMenu";
 const home = () => {
   const navigate = useNavigation();
   const isPageLoading = navigate.state === "loading";
-  return (
-    <div>
-      {/* <Header /> */}
-      <Navbar />
-      {isPageLoading ? <Loading /> : <Outlet />}
-      {/* <Graph />
-      <Map /> */}
-      <MobileMenu />
-    </div>
-  );
+  return <div>{isPageLoading ? <Loading /> : <Outlet />}</div>;
 };
 
 export default home;

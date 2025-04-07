@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-1000">
+    <nav className=" z-1000">
       <div className="navbar bg-base-100 shadow-sm p-1">
         <div className="navbar-start">
           <div
@@ -29,9 +29,7 @@ const Navbar = () => {
           >
             CloudLink
           </div>
-          <div className="navbar-center items-center justify-center px-8 hidden md:flex lg:flex ml-12 font-normal">
-            <NavLinks />
-          </div>
+          <div className="navbar-center items-center justify-center px-8 hidden md:flex lg:flex ml-12 font-normal"></div>
           <div className="dropdown">
             <label htmlFor="" tabIndex={0} className="btn btn-ghost  lg:hidden">
               <FaBarsStaggered className="h-6 w-6" />
@@ -61,7 +59,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-2 navbar-end">
-          <div className="text-center  items-center justify-center px-8">
+          {/* <div className="text-center  items-center justify-center px-8">
             {loading ? (
               <>
                 <span className="loading loading-ring loading-sm"></span>
@@ -71,66 +69,11 @@ const Navbar = () => {
                 <Location />
               </div>
             )}
-          </div>
-          <input
-            type="text"
-            placeholder="Search city..."
-            value={search}
-            className="input input-bordered w-24 md:w-auto"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button
-            className="btn btn-primary mr-1"
-            onClick={() => fetchWeatherByCity(search)}
-          >
-            Search
-          </button>
+          </div> */}
+
           <div className=" hidden lg:flex md:hidden">
             <ThemeIcon />
           </div>
-        </div>
-        <div className="flex items-center justify-center mr-2">
-          {loading ? (
-            <>loading</>
-          ) : (
-            <>
-              {user ? (
-                <>
-                  <div className="dropdown dropdown-end">
-                    <div
-                      tabIndex={0}
-                      role="button"
-                      className="btn btn-active btn-circle avatar"
-                    >
-                      <div className="avatar avatar-placeholder">
-                        <div className="bg-neutral text-neutral-content w-8 rounded-full">
-                          <span className="text-xs">
-                            {user?.name?.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <ul
-                      tabIndex={0}
-                      className="menu menu-sm dropdown-content text-amber-50 bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow-xl"
-                    >
-                      <li>
-                        <Link to={"/login"} onClick={handleLogout}>
-                          Logout
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </>
-              ) : (
-                <div className="flex items-center justify-center">
-                  <Link to={"/login"} className="btn btn-accent rounded-lg">
-                    login
-                  </Link>
-                </div>
-              )}{" "}
-            </>
-          )}
         </div>
       </div>
     </nav>

@@ -1,87 +1,190 @@
-import { FaCloudSun, FaTemperatureLow } from "react-icons/fa";
 import { useGlobalContext } from "./Context";
-import SingleDayData from "./SingleDayData";
+import { useState } from "react";
 import { WeatherIcon } from "./Icons";
 import dataFn from "../data";
-import Alert from "./Alert";
+import { Graph } from "./Graph";
+import { FaBarsStaggered } from "react-icons/fa6";
+import Location from "./Location";
 import { Link } from "react-router";
+import NavLinks from "./NavLinks";
+import Map from "./Map";
+import Help from "./DisasterHelp";
+import HomePageData from "./HomePageData";
+import ThemeIcon from "./ThemeIcon";
 
-const FetchData = () => {
+const Home = () => {
   const {
     search,
     currentLocationData,
+    fetchWeatherByCity,
+    setSearch,
+    cityImage,
     loading,
     user,
     data: searchData,
+    fetchImagesOfCity,
   } = useGlobalContext();
-  const data = dataFn();
-  console.log("current", currentLocationData);
-  console.log(searchData);
+
+  fetchImagesOfCity(searchData?.address || currentLocationData?.address);
+
+  const [activeTab, setActiveTab] = useState(0);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+  };
+
+  const tabs = [
+    {
+      name: "Home",
+      content: <HomePageData />,
+    },
+    {
+      name: "Graph",
+      content: <Graph />,
+    },
+    {
+      name: "Map",
+      content: <Map />,
+    },
+    {
+      name: "Help",
+      content: <Help />,
+    },
+  ];
+
   return (
-    <section className="align-element p-2 py-18 ">
-      <div
-        className={`grid lg:grid-cols-2 place-items-center grid-cols-1 md:grid-cols-2  `}
-      >
-        <div className={" md:block"}>
-          <WeatherIcon
-            icon={
-              searchData?.days?.[0]?.icon ||
-              currentLocationData?.days?.[0]?.icon
-            }
-            color={"text-amber-500"}
-            weather={
-              searchData?.currentConditions?.conditions ??
-              currentLocationData?.currentConditions?.conditions ??
-              ""
-            }
-            size={" h-76 w-55 lg:w-100"}
-            className="lg:w-96 sm:66 absolute"
-          />
-        </div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-6 min-h-screen mt-6 lg:mt-0">
+      <aside className=" p-6 rounded-2xl shadow-xl flex flex-col justify-between">
         <div>
-          {loading ? (
-            <>
-              <span className="loading loading-ring loading-lg"></span>
-            </>
-          ) : (
-            <div className=" ">
-              <div className="p-2 w-full   text-md sm:text-sm md:text-lg lg:text-2xl leading-snug">
-                <h2 className="flex items-center lg:w-100 gap-x-1 sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 ">
-                  Weather in {""}
-                  {searchData?.address || currentLocationData?.address}
-                  <FaCloudSun />
-                </h2>
-                {data.map((d, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col items-start gap-1 md:gap-2 leading-tight"
-                  >
-                    <div className="flex items-center space-x-1">
-                      <span className="font-semibold items-center justify-between gap-1  p-2 flex ">
-                        {d.name}
-                        {d.icon} {d.temp} {d.symbol}
-                      </span>
+          <div className="flex items-center space-x-2">
+            <input
+              type="text"
+              placeholder="Search for places..."
+              className="border rounded-lg px-3 py-2 w-full"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button
+              className="btn btn-primary mr-1"
+              onClick={() => fetchWeatherByCity(search)}
+            >
+              Search
+            </button>
+          </div>
+          <div className="text-center mt-6">
+            <WeatherIcon
+              icon={
+                searchData?.days?.[0]?.icon ||
+                currentLocationData?.days?.[0]?.icon
+              }
+              color={"text-amber-500"}
+              weather={
+                searchData?.currentConditions?.conditions ??
+                currentLocationData?.currentConditions?.conditions ??
+                ""
+              }
+              size={" h-56 w-55 lg:w-100"}
+              className="lg:w-96 sm:66 absolute"
+            />
+            <h2 className="text-4xl font-bold mt-2">
+              {" "}
+              {searchData?.currentConditions?.temp ||
+                currentLocationData?.currentConditions?.temp}{" "}
+              °C
+            </h2>
+            <p className="text-gray-500 mt-3">
+              {" "}
+              {searchData?.currentConditions?.conditions ||
+                currentLocationData?.currentConditions?.conditions}
+            </p>
+          </div>
+        </div>
+        <div className="text-center mt-4 mb-4">
+          <p className="text-sm text-gray-500">
+            {" "}
+            {searchData?.address || currentLocationData?.address}
+          </p>
+        </div>
+
+        <div className="mt-3 rounded-4xl m-auto">
+          <div>
+            <img
+              src={cityImage}
+              alt=""
+              className="rounded-4xl max-h-56 w-98 object-cover"
+            />
+          </div>
+        </div>
+      </aside>
+
+      <main className="lg:col-span-2 p-6 rounded-2xl shadow-lg">
+        <header className="flex justify-between items-center">
+          <div className="flex space-x-4 cursor-pointer">
+            {tabs.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTab(index)}
+                className={`px-4 py-2 ${
+                  activeTab === index
+                    ? "border-b-1 border-blue-500 font-bold cursor-pointer "
+                    : "cursor-pointer"
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
+          <div className="lg:flex lg:justify-around lg:static absolute top-0 right-0 left-0 flex justify-between p-2">
+            <ThemeIcon />
+
+            <div className="flex items-center justify-center mr-2">
+              {loading ? (
+                <>loading</>
+              ) : (
+                <>
+                  {user ? (
+                    <>
+                      <div className="dropdown dropdown-end">
+                        <div
+                          tabIndex={0}
+                          role="button"
+                          className="btn btn-active btn-circle avatar"
+                        >
+                          <div className="avatar avatar-placeholder">
+                            <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                              <span className="text-xs">
+                                {user?.name?.charAt(0).toUpperCase()}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <ul
+                          tabIndex={0}
+                          className="menu menu-sm dropdown-content text-amber-50 bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow-xl"
+                        >
+                          <li>
+                            <Link to={"/login"} onClick={handleLogout}>
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex items-center justify-center">
+                      <Link to={"/login"} className="btn btn-accent rounded-lg">
+                        login
+                      </Link>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  )}{" "}
+                </>
+              )}
             </div>
-          )}
-        </div>
-      </div>
-      <Alert />
-      {user ? (
-        <SingleDayData />
-      ) : (
-        <div className="grid place-items-center mt-24 justify-center items-center">
-          <p>Please Login for future weather details</p>
-          <Link to={"/login"} className="btn btn-primary mt-2.5">
-            Login
-          </Link>
-        </div>
-      )}
-    </section>
+          </div>
+        </header>
+
+        <div className="mt-4">{tabs[activeTab].content}</div>
+      </main>
+    </div>
   );
 };
 
-export default FetchData;
+export default Home;

@@ -12,6 +12,7 @@ const Context = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
+  const [cityImage, setCityImage] = useState(null);
   const [currentLocationData, setCurrentLocationData] = useState([]);
 
   const fetchData = () => {
@@ -62,6 +63,12 @@ const Context = ({ children }) => {
     }
   };
 
+  const fetchImagesOfCity = async (city) => {
+    const url = await axios.get(
+      `https://api.unsplash.com/search/photos?query=${city}&client_id=Fvo6YvJtk7_nWfRNmUxYpbWLHa0-1LyCw65kjljYogQ`
+    );
+    setCityImage(url.data.results[0].urls.regular);
+  };
   useEffect(() => {
     setLoading(true);
     fetchData();
@@ -83,9 +90,11 @@ const Context = ({ children }) => {
         search,
         setSearch,
         setLoading,
+        cityImage,
         currentLocationData,
         fetchData,
         setBgClass,
+        fetchImagesOfCity,
       }}
     >
       {children}

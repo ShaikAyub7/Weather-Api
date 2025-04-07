@@ -12,7 +12,7 @@ const Card = ({ data, searchData, currentLocationData }) => {
       {user ? (
         <>
           {displayData?.days?.length > 0 ? (
-            <div className="carousel carousel-end rounded-box p-12">
+            <div className="carousel carousel-end rounded-box p-6">
               <div className="carousel-item">
                 {displayData.days.map((day) => (
                   <div
