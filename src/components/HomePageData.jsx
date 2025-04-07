@@ -6,18 +6,17 @@ import searchDataFn from "../data";
 
 const HomePageData = () => {
   const data = searchDataFn();
-  const { currentLocationData, user, data: searchData } = useGlobalContext();
-  console.log(currentLocationData);
+  const { user, data: searchData } = useGlobalContext();
   return (
     <>
       {" "}
-      <section className="mt-6">
+      <section className="mt-4">
         <h3 className="text-lg font-semibold mb-2">Today's Highlights</h3>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {data.map((item) => {
+          {data.map((item, i) => {
             return (
-              <div className="p-4 bg-gray-50 rounded-lg shadow">
+              <div className="p-4 bg-gray-50 rounded-lg shadow" key={i}>
                 <p className="text-sm text-gray-500">{item.name}</p>
                 <p className="text-lg dark:text-gray-700 font-bold">
                   {" "}

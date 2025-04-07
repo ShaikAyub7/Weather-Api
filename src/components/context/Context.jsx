@@ -55,7 +55,6 @@ const Context = ({ children }) => {
       const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${secondKey}&unitGroup=metric`;
       const response = await axios.get(url);
       setData(response.data);
-      console.log(response.data);
       setLoading(false);
     } catch (error) {
       toast.error("City not found");

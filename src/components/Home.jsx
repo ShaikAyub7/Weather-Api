@@ -55,7 +55,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-screen mt-6 lg:mt-0">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-screen mt-2 lg:mt-0">
       <aside className=" p-6 rounded-2xl shadow-xl flex flex-col justify-between">
         <div>
           <div className="flex items-center space-x-2">
@@ -84,7 +84,7 @@ const Home = () => {
                 currentLocationData?.currentConditions?.conditions ??
                 ""
               }
-              size={" h-56 w-55 lg:w-100"}
+              size={" h-45 w-45 lg:w-100"}
               className="lg:w-96 sm:66 absolute"
             />
             <h2 className="text-4xl font-bold mt-2">
@@ -185,7 +185,7 @@ const Home = () => {
           </div>
         </header>
 
-        <div className="mt-4">{tabs[activeTab].content}</div>
+        <div className="mt-1">{tabs[activeTab].content}</div>
       </main>
     </div>
   );

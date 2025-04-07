@@ -19,10 +19,8 @@ export const action = async ({ request }) => {
     localStorage.setItem("user", JSON.stringify(response.data.user));
 
     toast.success(response.data.message);
-    console.log(response);
     return redirect("/");
   } catch (error) {
-    console.log(error);
     toast.error(error.response?.data?.message || "Login failed");
   }
 };

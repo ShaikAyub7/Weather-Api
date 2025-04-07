@@ -13,7 +13,6 @@ export const action = async ({ request }) => {
       "http://localhost:5000/api/register",
       data
     );
-    console.log(response);
     if (response.data.token) {
       localStorage.setItem("token", response.data.token);
       toast.success("Login successful");
