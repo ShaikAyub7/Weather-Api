@@ -40,7 +40,7 @@ const Map = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-2 mb-6 px-2">
-      <h3 className="text-lg sm:text-xl font-semibold  text-center lg:text-3xl py-4 underline mb-12">
+      <h3 className="text-lg sm:text-xl font-semibold  text-center lg:text-2xl py-4  mb-5">
         Weather Map
       </h3>
       {user ? (

@@ -58,15 +58,15 @@ const Home = () => {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-screen mt-2 lg:mt-0">
       <aside className=" p-6 rounded-2xl shadow-xl flex flex-col justify-between">
         <div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             <input
               type="text"
               placeholder="Search for places..."
-              className="border-1 rounded-4xl px-3 py-2 w-full"
+              className="border rounded-4xl px-3 py-2 w-full"
               onChange={(e) => setSearch(e.target.value)}
             />
             <button
-              className="btn btn-primary mr-1"
+              className="btn btn-primary mr-0 rounded-4xl"
               onClick={() => fetchWeatherByCity(search)}
             >
               Search

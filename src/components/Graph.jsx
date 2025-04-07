@@ -13,7 +13,7 @@ export const Graph = () => {
         </>
       ) : (
         <div>
-          <h1 className="text-center text-3xl font-bold my-6 underline ">
+          <h1 className="text-center text-2xl font-bold my-6  ">
             Weather Graph
           </h1>
           {user ? (
