@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import { useGlobalContext } from "./Context";
+import { useGlobalContext } from "./context/Context";
 
 const customIcon = new L.Icon({
   iconUrl: markerIcon,

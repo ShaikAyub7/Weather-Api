@@ -1,16 +1,17 @@
-import { useGlobalContext } from "./Context";
-import { useState } from "react";
+import { useGlobalContext } from "./context/Context";
+import { useEffect, useMemo, useState } from "react";
 import { WeatherIcon } from "./Icons";
-import dataFn from "../data";
 import { Graph } from "./Graph";
-import { FaBarsStaggered } from "react-icons/fa6";
-import Location from "./Location";
+import { CiMap } from "react-icons/ci";
 import { Link } from "react-router";
-import NavLinks from "./NavLinks";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+import { AiOutlineHome } from "react-icons/ai";
+import { VscGraph } from "react-icons/vsc";
 import Map from "./Map";
 import Help from "./DisasterHelp";
 import HomePageData from "./HomePageData";
 import ThemeIcon from "./ThemeIcon";
+import { CiLocationOn } from "react-icons/ci";
 
 const Home = () => {
   const {
@@ -25,7 +26,9 @@ const Home = () => {
     fetchImagesOfCity,
   } = useGlobalContext();
 
-  fetchImagesOfCity(searchData?.address || currentLocationData?.address);
+  useEffect(() => {
+    fetchImagesOfCity(searchData?.address || currentLocationData?.address);
+  }, [searchData?.address, currentLocationData?.address]);
 
   const [activeTab, setActiveTab] = useState(0);
   const handleLogout = () => {
@@ -34,32 +37,32 @@ const Home = () => {
 
   const tabs = [
     {
-      name: "Home",
+      name: <AiOutlineHome />,
       content: <HomePageData />,
     },
     {
-      name: "Graph",
+      name: <VscGraph />,
       content: <Graph />,
     },
     {
-      name: "Map",
+      name: <CiMap />,
       content: <Map />,
     },
     {
-      name: "Help",
+      name: <IoIosHelpCircleOutline />,
       content: <Help />,
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-6 min-h-screen mt-6 lg:mt-0">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-screen mt-6 lg:mt-0">
       <aside className=" p-6 rounded-2xl shadow-xl flex flex-col justify-between">
         <div>
           <div className="flex items-center space-x-2">
             <input
               type="text"
               placeholder="Search for places..."
-              className="border rounded-lg px-3 py-2 w-full"
+              className="border-1 rounded-4xl px-3 py-2 w-full"
               onChange={(e) => setSearch(e.target.value)}
             />
             <button
@@ -98,8 +101,9 @@ const Home = () => {
           </div>
         </div>
         <div className="text-center mt-4 mb-4">
-          <p className="text-sm text-gray-500">
-            {" "}
+          <p className="text-sm text-gray-500 flex items-center justify-center">
+            <CiLocationOn />
+            {"  "} &nbsp;
             {searchData?.address || currentLocationData?.address}
           </p>
         </div>
@@ -117,22 +121,22 @@ const Home = () => {
 
       <main className="lg:col-span-2 p-6 rounded-2xl shadow-lg">
         <header className="flex justify-between items-center">
-          <div className="flex space-x-4 cursor-pointer">
+          <div className="flex space-x-1.5 lg:space-x-4 cursor-pointer">
             {tabs.map((tab, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-4 py-2 ${
+                className={`px-4 py-2 border-b-2 font-bold cursor-pointer ${
                   activeTab === index
-                    ? "border-b-1 border-blue-500 font-bold cursor-pointer "
-                    : "cursor-pointer"
+                    ? "border-white dark:border-b-blue-900"
+                    : "border-transparent"
                 }`}
               >
                 {tab.name}
               </button>
             ))}
           </div>
-          <div className="lg:flex lg:justify-around lg:static absolute top-0 right-0 left-0 flex justify-between p-2">
+          <div className=" flex justify-around p-2">
             <ThemeIcon />
 
             <div className="flex items-center justify-center mr-2">

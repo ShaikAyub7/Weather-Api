@@ -1,5 +1,5 @@
 import Home from "./components/Home";
-import ContextProvider from "./components/Context";
+import ContextProvider from "./components/context/Context";
 import { ToastContainer } from "react-toastify";
 import { Graph } from "./components/Graph";
 import Footer from "./components/Footer";
@@ -8,7 +8,6 @@ import HomeLayout from "./pages/HomeLayout";
 import Login from "./pages/Login";
 import Register, { action as RegisterAction } from "./pages/Register";
 import { action as LoginAction } from "./pages/Login";
-import Help from "./pages/Help";
 import Map from "./components/Map";
 import Error from "./components/Error";
 
@@ -30,11 +29,7 @@ const router = createBrowserRouter([
         element: <Graph />,
         errorElement: <Error />,
       },
-      {
-        path: "help",
-        element: <Help />,
-        errorElement: <Error />,
-      },
+
       {
         path: "map",
         element: <Map />,

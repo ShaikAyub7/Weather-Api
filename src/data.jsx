@@ -1,5 +1,5 @@
 import { FaCloudSun, FaTemperatureLow } from "react-icons/fa";
-import { useGlobalContext } from "./components/Context";
+import { useGlobalContext } from "./components/context/Context";
 import { WiDayShowers, WiHumidity, WiWindBeaufort0 } from "react-icons/wi";
 import { TbUvIndex } from "react-icons/tb";
 
@@ -16,15 +16,6 @@ export const formatTime12Hour = (timeString) => {
 const searchDataFn = () => {
   const { data: searchData, currentLocationData } = useGlobalContext();
   return [
-    {
-      name: "Temperature : ",
-
-      temp:
-        searchData?.currentConditions?.temp ||
-        currentLocationData?.currentConditions?.temp,
-      symbol: "°C",
-      icon: <FaTemperatureLow />,
-    },
     // {
     //   name: "Weather : ",
     //   temp:
@@ -45,7 +36,7 @@ const searchDataFn = () => {
       temp:
         searchData?.currentConditions?.windspeed ||
         currentLocationData?.currentConditions?.windspeed,
-      symbol: "Km/hr",
+      symbol: "Km/h",
       icon: <WiWindBeaufort0 />,
     },
     {

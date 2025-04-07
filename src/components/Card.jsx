@@ -2,7 +2,7 @@ import React from "react";
 import { WeatherIcon } from "./Icons";
 import { formatTime12Hour } from "../data";
 import { useState } from "react";
-import { useGlobalContext } from "./Context";
+import { useGlobalContext } from "./context/Context";
 const Card = ({ data, searchData, currentLocationData }) => {
   const { user } = useGlobalContext();
   const displayData = searchData || data || currentLocationData;
@@ -18,16 +18,16 @@ const Card = ({ data, searchData, currentLocationData }) => {
                   <div
                     key={day.datetime}
                     id="card-items"
-                    className="gap-x-12 bg-gray-50 shadow-4xl mr-6 rounded-2xl flex flex-col items-center justify-center text-black p-4 max-w-xl"
+                    className="gap-x-12 bg-white  shadow-4xl mr-6 rounded-2xl flex flex-col items-center justify-center text-black dark:text-white p-4 max-w-xl"
                   >
                     <figure className="h-12 w-full flex justify-center items-center mt-8">
                       <WeatherIcon
                         icon={day.icon}
                         weather={day.conditions}
-                        size={`h-45 w-45`}
+                        size={`h-42 w-42`}
                       />
                     </figure>
-                    <div className="card-body p-2 z-10">
+                    <div className="card-body p-2 z-10 text-black">
                       <h2>Date: {day.datetime}</h2>
                       <p>Temp: {day.temp}°C</p>
                       <p>Condition: {day.conditions}</p>

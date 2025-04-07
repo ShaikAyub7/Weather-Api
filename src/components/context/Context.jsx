@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -67,8 +67,11 @@ const Context = ({ children }) => {
     const url = await axios.get(
       `https://api.unsplash.com/search/photos?query=${city}&client_id=Fvo6YvJtk7_nWfRNmUxYpbWLHa0-1LyCw65kjljYogQ`
     );
-    setCityImage(url.data.results[0].urls.regular);
+    const randomNumber = Math.floor(Math.random() * 8) + 1;
+
+    setCityImage(url?.data?.results[randomNumber || 2]?.urls?.regular);
   };
+
   useEffect(() => {
     setLoading(true);
     fetchData();

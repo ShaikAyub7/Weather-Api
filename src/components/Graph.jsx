@@ -1,6 +1,6 @@
 import React from "react";
 import WeatherChart from "./Chart";
-import { useGlobalContext } from "./Context";
+import { useGlobalContext } from "./context/Context";
 import { Link } from "react-router";
 export const Graph = () => {
   const { currentLocationData, loading, user } = useGlobalContext();

@@ -3,7 +3,7 @@ import SubmitBtn from "../components/SubmitBtn";
 import { Link, Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useGlobalContext } from "../components/Context";
+import { useGlobalContext } from "../components/context/Context";
 import { useEffect } from "react";
 
 export const action = async ({ request }) => {
