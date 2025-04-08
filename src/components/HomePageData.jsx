@@ -33,9 +33,9 @@ const HomePageData = () => {
         {user ? (
           <SingleDayData />
         ) : (
-          <div className="grid place-items-center  justify-center items-center">
+          <div className="grid place-items-center mt-10 justify-center items-center">
             <p>Please Login for future weather details</p>
-            <Link to={"/login"} className="btn btn-primary ">
+            <Link to={"/login"} className="btn btn-primary mt-1.5 ">
               Login
             </Link>
           </div>
