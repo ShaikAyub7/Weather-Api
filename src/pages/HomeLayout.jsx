@@ -1,5 +1,4 @@
 import React from "react";
-import Alert from "../components/Alert";
 import { Outlet, useNavigation } from "react-router";
 
 import Loading from "../components/Loading";
