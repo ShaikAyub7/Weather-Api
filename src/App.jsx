@@ -10,6 +10,7 @@ import Register, { action as RegisterAction } from "./pages/Register";
 import { action as LoginAction } from "./pages/Login";
 import Map from "./components/Map";
 import Error from "./components/Error";
+import Alert from "./components/Alert";
 
 const router = createBrowserRouter([
   {

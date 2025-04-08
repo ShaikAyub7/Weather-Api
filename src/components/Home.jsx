@@ -8,6 +8,7 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 import { AiOutlineHome } from "react-icons/ai";
 import { VscGraph } from "react-icons/vsc";
 import Map from "./Map";
+import Alert from "./Alert";
 import Help from "./DisasterHelp";
 import HomePageData from "./HomePageData";
 import ThemeIcon from "./ThemeIcon";
@@ -55,8 +56,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-screen mt-2 lg:mt-0">
-      <aside className=" p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-80 mt-2 lg:mt-0 ">
+      <aside className=" p-6 rounded-2xl shadow-lg flex flex-col justify-between">
         <div>
           <div className="flex items-center space-x-1">
             <input
@@ -118,7 +119,6 @@ const Home = () => {
           </div>
         </div>
       </aside>
-
       <main className="lg:col-span-2 p-6 rounded-2xl shadow-lg">
         <header className="flex justify-between items-center">
           <div className="flex space-x-1.5 lg:space-x-4 cursor-pointer">
@@ -187,6 +187,7 @@ const Home = () => {
 
         <div className="mt-1">{tabs[activeTab].content}</div>
       </main>
+      <Alert />
     </div>
   );
 };

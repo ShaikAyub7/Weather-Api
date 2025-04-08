@@ -13,8 +13,7 @@ const DisasterHelp = () => {
           <li>Charge your mobile devices & prepare an emergency kit.</li>
           <li>Evacuate if instructed by local authorities.</li>
         </ul>
-      </section>
-      \{" "}
+      </section>{" "}
       <section className="mb-6">
         <h2 className="text-xl font-semibold">🌊 Floods</h2>
         <ul className="list-disc pl-6 mt-2">

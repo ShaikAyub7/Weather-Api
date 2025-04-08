@@ -1,5 +1,5 @@
 import React from "react";
-
+import Alert from "../components/Alert";
 import { Outlet, useNavigation } from "react-router";
 
 import Loading from "../components/Loading";
@@ -7,7 +7,17 @@ import Loading from "../components/Loading";
 const home = () => {
   const navigate = useNavigation();
   const isPageLoading = navigate.state === "loading";
-  return <div>{isPageLoading ? <Loading /> : <Outlet />}</div>;
+  return (
+    <div>
+      {isPageLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <Outlet />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default home;
