@@ -56,7 +56,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-80 mt-2 lg:mt-0 ">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 min-h-screen mt-2 lg:mt-0 ">
       <aside className=" p-6 rounded-2xl shadow-lg flex flex-col justify-between">
         <div>
           <div className="flex items-center space-x-1">
