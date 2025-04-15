@@ -95,7 +95,6 @@ const Home = () => {
               °C
             </h2>
             <p className="text-gray-500 mt-3">
-              {" "}
               {searchData?.currentConditions?.conditions ||
                 currentLocationData?.currentConditions?.conditions}
             </p>
