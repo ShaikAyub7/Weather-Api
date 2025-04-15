@@ -46,6 +46,7 @@ const Login = () => {
         <div className=" mt-4 ">
           <SubmitBtn text={"Login"} />
         </div>
+
         <button className="btn btn-secondary">
           <Link to={"/"}>Guest</Link>
         </button>
