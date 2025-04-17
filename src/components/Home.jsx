@@ -86,7 +86,7 @@ const Home = () => {
                 ""
               }
               size={" h-45 w-45 lg:w-100"}
-              className="lg:w-96 sm:66 absolute"
+              className="lg:w-96 sm:66 absolute "
             />
             <h2 className="text-4xl font-bold mt-2">
               {" "}
