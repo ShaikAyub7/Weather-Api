@@ -19,6 +19,8 @@ const Error = () => {
       </Wrapper>
     );
   }
+
+  
   return (
     <Wrapper>
       <div>
