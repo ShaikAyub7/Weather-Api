@@ -20,7 +20,6 @@ const Error = () => {
     );
   }
 
-  
   return (
     <Wrapper>
       <div>
