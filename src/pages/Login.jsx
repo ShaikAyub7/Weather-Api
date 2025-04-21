@@ -34,6 +34,7 @@ const Login = () => {
       setUser(JSON.parse(storedUser));
     }
   }, []);
+
   return (
     <section className="grid h-screen place-items-center">
       <Form
