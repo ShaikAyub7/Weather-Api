@@ -43,6 +43,7 @@ const Map = () => {
       <h3 className="text-lg sm:text-xl font-semibold  text-center lg:text-2xl py-4  mb-5">
         Weather Map
       </h3>
+
       {user ? (
         <div className="w-full h-[400px] sm:h-[500px] lg:h-[500px] rounded-lg overflow-hidden">
           <MapContainer
@@ -76,6 +77,7 @@ const Map = () => {
       ) : (
         <div className="grid place-items-center mt-24 justify-center items-center">
           <p>Please Login for this feature </p>
+
           <Link to={"/login"} className="btn btn-primary mt-6">
             Login
           </Link>
