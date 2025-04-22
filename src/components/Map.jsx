@@ -46,6 +46,8 @@ const Map = () => {
 
       {user ? (
         <div className="w-full h-[400px] sm:h-[500px] lg:h-[500px] rounded-lg overflow-hidden">
+
+          
           <MapContainer
             center={[location.lat, location.lng]}
             zoom={3}
