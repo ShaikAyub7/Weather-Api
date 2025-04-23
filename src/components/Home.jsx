@@ -100,6 +100,7 @@ const Home = () => {
             </p>
           </div>
         </div>
+
         <div className="text-center mt-4 mb-4">
           <p className="text-sm text-gray-500 flex items-center justify-center">
             <CiLocationOn />
@@ -118,6 +119,7 @@ const Home = () => {
           </div>
         </div>
       </aside>
+
       <main className="lg:col-span-2 p-6 rounded-2xl shadow-lg">
         <header className="flex justify-between items-center">
           <div className="flex space-x-1.5 lg:space-x-4 cursor-pointer">
@@ -186,6 +188,7 @@ const Home = () => {
 
         <div className="mt-1">{tabs[activeTab].content}</div>
       </main>
+
       <Alert />
     </div>
   );
