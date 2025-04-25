@@ -29,6 +29,7 @@ const Navbar = () => {
           >
             CloudLink
           </div>
+
           <div className="navbar-center items-center justify-center px-8 hidden md:flex lg:flex ml-12 font-normal"></div>
           <div className="dropdown">
             <label htmlFor="" tabIndex={0} className="btn btn-ghost  lg:hidden">
@@ -49,6 +50,7 @@ const Navbar = () => {
                 <div className="mt-8 flex items-center w-full justify-center ">
                   <Location />
                 </div>
+
                 <hr className="w-1/2 my-1 border-gray-700" />
                 <div className="absolute bottom-4 text-sm text-gray-400 m-auto left-10">
                   🕒 Time: {`${hour} : ${minute} : ${seconds}`}
