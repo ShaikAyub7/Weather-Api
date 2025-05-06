@@ -31,6 +31,7 @@ const searchDataFn = () => {
       symbol: "%",
       icon: <WiHumidity />,
     },
+
     {
       name: "Windspeed : ",
       temp:
