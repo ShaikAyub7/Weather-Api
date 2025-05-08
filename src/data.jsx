@@ -16,13 +16,7 @@ export const formatTime12Hour = (timeString) => {
 const searchDataFn = () => {
   const { data: searchData, currentLocationData } = useGlobalContext();
   return [
-    // {
-    //   name: "Weather : ",
-    //   temp:
-    //     searchData?.currentConditions?.conditions ||
-    //     currentLocationData?.currentConditions.conditions,
-    //   icon: <WiDayShowers />,
-    // },
+    ,
     {
       name: "Humidity : ",
       temp:
