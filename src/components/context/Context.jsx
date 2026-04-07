@@ -10,7 +10,7 @@ const Context = ({ children }) => {
   const [bgClass, setBgClass] = useState("default-bg");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(true);
   const [data, setData] = useState(null);
   const [cityImage, setCityImage] = useState(null);
   const [currentLocationData, setCurrentLocationData] = useState([]);
@@ -41,7 +41,7 @@ const Context = ({ children }) => {
       (error) => {
         toast.error("Geolocation permission denied");
         setLoading(false);
-      }
+      },
     );
   };
 
@@ -64,7 +64,7 @@ const Context = ({ children }) => {
 
   const fetchImagesOfCity = async (city) => {
     const url = await axios.get(
-      `https://api.unsplash.com/search/photos?query=${city}&client_id=Fvo6YvJtk7_nWfRNmUxYpbWLHa0-1LyCw65kjljYogQ`
+      `https://api.unsplash.com/search/photos?query=${city}&client_id=Fvo6YvJtk7_nWfRNmUxYpbWLHa0-1LyCw65kjljYogQ`,
     );
     const randomNumber = Math.floor(Math.random() * 8) + 1;
 
